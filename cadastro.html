@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voluntário - ONG Coração Solidário</title>
+    <meta name="description" content="Cadastre-se para se tornar um voluntário e fazer a diferença.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><img src="imagens/logo.png" alt="Logo da ONG Coração Solidário" width="50"> ONG Coração Solidário</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="cadastro.html" class="ativo">Seja Voluntário</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Faça Parte da Mudança!</h2>
+            <p>Estamos muito felizes com seu interesse em se juntar a nós. Preencha o formulário abaixo e em breve nossa equipe entrará em contato.</p>
+            <img src="imagens/voluntario.jpg" alt="Grupo de voluntários sorrindo e celebrando juntos">
+        </section>
+        
+        <section id="formulario">
+            <form onsubmit="event.preventDefault(); mostrarAgradecimento();">
+                <fieldset>
+                    <legend>Seus Dados Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required minlength="3">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14">
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15">
+
+                    <label for="nascimento">Data de Nascimento:</label>
+                    <input type="date" id="nascimento" name="nascimento" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seu Endereço</legend>
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required placeholder="00000-000" pattern="\d{5}-\d{3}" maxlength="9">
+
+                    <label for="endereco">Endereço (Rua, Nº):</label>
+                    <input type="text" id="endereco" name="endereco" required>
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required>
+                </fieldset>
+
+                <button type="submit" class="botao-enviar">Quero ser voluntário!</button>
+            </form>
+
+            <!-- Mensagem de agradecimento (inicialmente escondida) -->
+            <div id="mensagem" style="display:none; text-align:center; margin-top:40px;">
+                <h3>🎉 Obrigado por se voluntariar!</h3>
+                <p>Seu cadastro foi enviado com sucesso. Nossa equipe entrará em contato em breve 💌</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>ONG Coração Solidário &copy; 2025</p>
+    </footer>
+
+    <script>
+    // Função chamada quando o usuário envia o formulário
+    function mostrarAgradecimento() {
+        // Esconde o formulário
+        document.querySelector("form").style.display = "none";
+
+        // Mostra a mensagem de agradecimento
+        document.getElementById("mensagem").style.display = "block";
+
+        // Opcional: rola até a mensagem
+        window.scrollTo({ top: document.getElementById("mensagem").offsetTop, behavior: "smooth" });
+    }
+    </script>
+
+    <script src="js/masks.js"></script>
+</body>
+</html>
