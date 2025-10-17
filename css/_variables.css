@@ -1,0 +1,47 @@
+:root{
+  /* Paleta de cores (8+ cores) */
+  --color-primary: #e8491d;
+  --color-primary-700: #c13b17;
+  --color-secondary: #35424a;
+  --color-accent: #1fa2ff;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  --color-muted: #6c757d;
+
+  /* Neutras */
+  --white: #ffffff;
+  --black: #111111;
+  --bg: #f4f4f4;
+  --surface: #ffffff;
+
+  /* Tipografia (5 tamanhos mínimos) */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 28px;
+
+  /* Espaçamentos (sistema modular) */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Grid */
+  --container-max-width: 1200px;
+  --gutter: 16px;
+
+  /* Radius & shadow */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Reset básico */
+* { box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+body { font-family: "Inter", Arial, Helvetica, sans-serif; background: var(--bg); color: var(--black); margin:0; font-size:var(--font-size-md); line-height:1.5; }

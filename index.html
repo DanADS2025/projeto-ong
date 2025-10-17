@@ -1,45 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONG Coração Solidário - Início</title>
-    <meta name="description" content="Conheça a ONG Coração Solidário, nossa missão e como você pode nos ajudar.">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONG Coração Solidário - Início</title>
+  <meta name="description" content="Conheça a ONG Coração Solidário, nossa missão e como você pode nos ajudar.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><img src="imagens/logo.png" alt="Logo da ONG Coração Solidário" width="50"> ONG Coração Solidário</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
-                    <li><a href="cadastro.html">Seja Voluntário</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container header-inner">
+      <div id="branding">
+        <img src="imagens/logo.png" alt="Logo ONG" width="44">
+        <h1>ONG Coração Solidário</h1>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+      <nav role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html" class="ativo">Início</a></li>
+          <li class="nav-item-has-sub">
+            <a href="projetos.html">Projetos</a>
+            <!-- submenu exemplo (opcional)
+            <button class="sub-toggle" aria-expanded="false" aria-controls="submenu-projetos">▼</button>
+            <ul id="submenu-projetos" class="submenu">
+              <li><a href="#">Educação</a></li>
+              <li><a href="#">Saúde</a></li>
+            </ul>
+            -->
+          </li>
+          <li><a href="cadastro.html">Seja Voluntário</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="site-grid">
+      <div class="col-8">
+        <h2>Nossa Missão é Transformar Vidas</h2>
+        <p>Acreditamos no poder da solidariedade para criar um futuro mais justo. Atuamos em comunidades vulneráveis, promovendo educação, saúde e desenvolvimento social por meio de projetos inovadores e do engajamento de voluntários.</p>
+        <button class="btn btn-primary" onclick="openModal('<h3>Como atuamos</h3><p>Atuamos com projetos de educação, saúde e apoio social.</p>')">Saiba mais</button>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <img class="card-img" src="imagens/projeto1.jpg" alt="Voluntários trabalhando">
+          <h3>Projeto em destaque</h3>
+          <p>Atividades de reforço escolar e oficinas criativas.</p>
+          <div class="mt-8">
+            <span class="badge primary">Educação</span>
+            <span class="badge">Comunidade</span>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="container">
-        <section>
-            <h2>Nossa Missão é Transformar Vidas</h2>
-            <p>Acreditamos no poder da solidariedade para criar um futuro mais justo. Atuamos em comunidades vulneráveis, promovendo educação, saúde e desenvolvimento social por meio de projetos inovadores e do engajamento de voluntários.</p>
-            <img src="imagens/projeto1.jpg" alt="Voluntários trabalhando em um projeto comunitário">
-        </section>
+    <section>
+      <h2>Como Você Pode Ajudar?</h2>
+      <p>Toda ajuda é bem-vinda! Você pode se tornar um voluntário, doando seu tempo e talento, ou pode nos ajudar com uma doação de qualquer valor para mantermos nossos projetos ativos.</p>
+    </section>
+  </main>
 
-        <section>
-            <h2>Como Você Pode Ajudar?</h2>
-            <p>Toda ajuda é bem-vinda! Você pode se tornar um voluntário, doando seu tempo e talento, ou pode nos ajudar com uma doação de qualquer valor para mantermos nossos projetos ativos.</p>
-        </section>
-    </main>
+  <footer>
+    <p>ONG Coração Solidário &copy; 2025</p>
+  </footer>
 
-    <footer>
-        <p>ONG Coração Solidário &copy; 2025</p>
-    </footer>
+  <!-- Modal e Toasts -->
+  <div class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document" tabindex="-1">
+      <button class="close" aria-label="Fechar" onclick="closeModal()">✕</button>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
+  <script src="js/masks.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

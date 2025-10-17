@@ -1,0 +1,71 @@
+/* Container e Grid principal (12 colunas) */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Grid wrapper (12 colunas) */
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+/* Colunas utilitárias */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+/* Header */
+header {
+  background: var(--color-secondary);
+  color: var(--white);
+  border-bottom: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-16) 0;
+  position: relative;
+}
+
+/* Branding */
+#branding { display:flex; align-items:center; gap:10px; }
+#branding img { vertical-align: middle; }
+
+/* Nav */
+nav ul { list-style:none; margin:0; padding:0; display:flex; gap: var(--space-12); align-items:center; }
+nav a { color: var(--white); text-decoration:none; padding:8px 12px; border-radius:6px; font-weight:600; }
+nav a.ativo { background: rgba(255,255,255,0.06); }
+
+/* Hamburger */
+.hamburger {
+  display:none;
+  background:transparent; border:0; color: var(--white); font-size: 24px;
+}
+
+/* Responsivo header/nav */
+@media (max-width: 900px) {
+  nav { display:none; }
+  .hamburger { display:block; }
+  nav.mobile-open { display:block; position:absolute; top:64px; left:0; right:0; background:var(--color-secondary); padding: var(--space-16); z-index:20; }
+  nav.mobile-open ul { display:flex; flex-direction:column; gap:12px; }
+}
+
+/* Main & sections */
+main { padding: var(--space-24) 0; }
+section { background: var(--surface); padding: var(--space-16); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: var(--space-16); }
+
+/* Imagens */
+img { max-width:100%; height:auto; display:block; border-radius:6px; }
+
+/* Footer */
+footer { background: var(--color-secondary); color: var(--white); text-align:center; padding: var(--space-16); margin-top:var(--space-24); }

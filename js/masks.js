@@ -30,8 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
             .substring(0, 9);
     };
 
-    mascara(document.getElementById('cpf'), mascaraCpf);
-    mascara(document.getElementById('telefone'), mascaraTelefone);
-    mascara(document.getElementById('cep'), mascaraCep);
+    const cpfEl = document.getElementById('cpf');
+    const telEl = document.getElementById('telefone');
+    const cepEl = document.getElementById('cep');
+
+    if (cpfEl) mascara(cpfEl, mascaraCpf);
+    if (telEl) mascara(telEl, mascaraTelefone);
+    if (cepEl) mascara(cepEl, mascaraCep);
 
 });
