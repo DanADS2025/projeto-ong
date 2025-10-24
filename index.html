@@ -1,83 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ONG Coração Solidário - Início</title>
-  <meta name="description" content="Conheça a ONG Coração Solidário, nossa missão e como você pode nos ajudar.">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title id="page-title">ONG Coração Solidário - Início</title>
+    <meta name="description" content="Conheça a ONG Coração Solidário, nossa missão e como você pode nos ajudar.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <div id="branding">
-        <img src="imagens/logo.png" alt="Logo ONG" width="44">
-        <h1>ONG Coração Solidário</h1>
-      </div>
+    <header>
+        <div class="container header-inner">
+            <div id="branding">
+                <img src="imagens/logo.png" alt="Logo ONG" width="44">
+                <h1>ONG Coração Solidário</h1>
+            </div>
 
-      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">☰</button>
 
-      <nav role="navigation" aria-label="Menu principal">
-        <ul>
-          <li><a href="index.html" class="ativo">Início</a></li>
-          <li class="nav-item-has-sub">
-            <a href="projetos.html">Projetos</a>
-            <!-- submenu exemplo (opcional)
-            <button class="sub-toggle" aria-expanded="false" aria-controls="submenu-projetos">▼</button>
-            <ul id="submenu-projetos" class="submenu">
-              <li><a href="#">Educação</a></li>
-              <li><a href="#">Saúde</a></li>
-            </ul>
-            -->
-          </li>
-          <li><a href="cadastro.html">Seja Voluntário</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="site-grid">
-      <div class="col-8">
-        <h2>Nossa Missão é Transformar Vidas</h2>
-        <p>Acreditamos no poder da solidariedade para criar um futuro mais justo. Atuamos em comunidades vulneráveis, promovendo educação, saúde e desenvolvimento social por meio de projetos inovadores e do engajamento de voluntários.</p>
-        <button class="btn btn-primary" onclick="openModal('<h3>Como atuamos</h3><p>Atuamos com projetos de educação, saúde e apoio social.</p>')">Saiba mais</button>
-      </div>
-
-      <div class="col-4">
-        <div class="card">
-          <img class="card-img" src="imagens/projeto1.jpg" alt="Voluntários trabalhando">
-          <h3>Projeto em destaque</h3>
-          <p>Atividades de reforço escolar e oficinas criativas.</p>
-          <div class="mt-8">
-            <span class="badge primary">Educação</span>
-            <span class="badge">Comunidade</span>
-          </div>
+            <nav role="navigation" aria-label="Menu principal">
+                <ul>
+                    <li><a href="#inicio" data-route="inicio" class="nav-link ativo">Início</a></li>
+                    <li class="nav-item-has-sub">
+                        <a href="#projetos" data-route="projetos" class="nav-link">Projetos</a>
+                        </li>
+                    <li><a href="#cadastro" data-route="cadastro" class="nav-link">Seja Voluntário</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section>
-      <h2>Como Você Pode Ajudar?</h2>
-      <p>Toda ajuda é bem-vinda! Você pode se tornar um voluntário, doando seu tempo e talento, ou pode nos ajudar com uma doação de qualquer valor para mantermos nossos projetos ativos.</p>
-    </section>
-  </main>
+    <main class="container" id="app-content">
+        </main>
 
-  <footer>
-    <p>ONG Coração Solidário &copy; 2025</p>
-  </footer>
+    <footer>
+        <p>ONG Coração Solidário &copy; 2025</p>
+    </footer>
 
-  <!-- Modal e Toasts -->
-  <div class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal" role="document" tabindex="-1">
-      <button class="close" aria-label="Fechar" onclick="closeModal()">✕</button>
-      <div class="modal-body"></div>
+    <div class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal" role="document" tabindex="-1">
+            <button class="close" aria-label="Fechar" onclick="closeModal()">✕</button>
+            <div class="modal-body"></div>
+        </div>
     </div>
-  </div>
-  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+    <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
-  <script src="js/masks.js"></script>
-  <script src="js/main.js"></script>
+    <template id="template-inicio">
+        <section class="site-grid">
+            <div class="col-8">
+                <h2>Nossa Missão é Transformar Vidas</h2>
+                <p>Acreditamos no poder da solidariedade para criar um futuro mais justo. Atuamos em comunidades vulneráveis, promovendo educação, saúde e desenvolvimento social por meio de projetos inovadores e do engajamento de voluntários.</p>
+                <button class="btn btn-primary" onclick="openModal('<h3>Como atuamos</h3><p>Atuamos com projetos de educação, saúde e apoio social.</p>')">Saiba mais</button>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img" src="imagens/projeto1.jpg" alt="Voluntários trabalhando">
+                    <h3>Projeto em destaque</h3>
+                    <p>Atividades de reforço escolar e oficinas criativas.</p>
+                    <div class="mt-8">
+                        <span class="badge primary">Educação</span>
+                        <span class="badge">Comunidade</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Como Você Pode Ajudar?</h2>
+            <p>Toda ajuda é bem-vinda! Você pode se tornar um voluntário, doando seu tempo e talento, ou pode nos ajudar com uma doação de qualquer valor para mantermos nossos projetos ativos.</p>
+        </section>
+    </template>
+
+    <template id="template-projetos">
+        <section>
+            <h2>Projeto "Educação para o Futuro"</h2>
+            <div class="card">
+                <img class="card-img" src="imagens/projeto1.jpg" alt="Crianças em sala de aula">
+                <p>Este projeto oferece reforço escolar, oficinas de artes e aulas de informática para crianças e adolescentes, com o objetivo de ampliar seus horizontes e prepará-los para novas oportunidades.</p>
+                <h3>Como Ajudar:</h3>
+                <ul>
+                    <li><strong>Seja um voluntário:</strong> Doe seu tempo para ensinar ou auxiliar nas atividades.</li>
+                    <li><strong>Faça uma doação:</strong> Contribua com materiais escolares ou com recursos financeiros.</li>
+                </ul>
+                <div class="mt-8">
+                    <button class="btn btn-primary" onclick="openModal('<h3>Educação para o Futuro</h3><p>Detalhes sobre o projeto e como participar.</p>')">Saiba mais</button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="template-cadastro">
+        <section>
+            <h2>Faça Parte da Mudança!</h2>
+            <p>Estamos muito felizes com seu interesse em se juntar a nós. Preencha o formulário abaixo e em breve nossa equipe entrará em contato.</p>
+            <img src="imagens/voluntario.jpg" alt="Grupo de voluntários sorrindo e celebrando juntos">
+        </section>
+
+        <section id="formulario">
+            <form id="form-voluntario" novalidate>
+                <fieldset>
+                    <legend>Seus Dados Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required minlength="3">
+                    <div class="form-error">Nome é obrigatório (mínimo 3 caracteres).</div>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="form-error">Informe um e-mail válido.</div>
+
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14">
+                    <div class="form-error">CPF no formato 000.000.000-00.</div>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15">
+                    <div class="form-error">Telefone no formato (00) 00000-0000.</div>
+
+                    <label for="nascimento">Data de Nascimento:</label>
+                    <input type="date" id="nascimento" name="nascimento" required>
+                    <div class="form-error">Informe sua data de nascimento.</div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seu Endereço</legend>
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required placeholder="00000-000" pattern="\d{5}-\d{3}" maxlength="9">
+                    <div class="form-error">CEP no formato 00000-000.</div>
+
+                    <label for="endereco">Endereço (Rua, Nº):</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                    <div class="form-error">Informe seu endereço.</div>
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    <div class="form-error">Informe sua cidade.</div>
+
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required>
+                    <div class="form-error">Informe seu estado.</div>
+                </fieldset>
+
+                <button type="submit" class="botao-enviar">Quero ser voluntário!</button>
+            </form>
+
+            <div id="mensagem" class="hidden text-center mt-16" aria-hidden="true" aria-live="polite">
+                <h3>🎉 Obrigado por se voluntariar!</h3>
+                <p>Seu cadastro foi enviado com sucesso. Nossa equipe entrará em contato em breve 💌</p>
+            </div>
+        </section>
+    </template>
+
+
+    <script src="js/masks.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
