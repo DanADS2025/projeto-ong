@@ -43,7 +43,8 @@ Este repositório demonstra o cumprimento de todos os requisitos das 4 atividade
 
 ## 🖼️ Estrutura de Pastas
 
-Meu Projeto HTML/
+```bash
+Meu Projeto HTM/
 ├── css/
 │   ├── _components.css
 │   ├── _forms.css
@@ -51,12 +52,15 @@ Meu Projeto HTML/
 │   ├── _utilities.css
 │   ├── _variables.css
 │   └── style.css
+│
 ├── js/
 │   ├── main.js
 │   └── masks.js
+│
 ├── imagens/
 │   ├── logo.png
 │   ├── projeto1.jpg
 │   └── voluntario.jpg 
+│
 ├── index.html
 └── README.md
