@@ -44,10 +44,12 @@ function loadTemplate(routeName) {
 
         // 5. Se for a página de cadastro, re-inicializa as máscaras e a validação do formulário
         if (routeName === 'cadastro') {
-            // Re-aplicar máscaras se o DOM tiver sido alterado (o masks.js já é DOMContentLoaded)
-            // Aqui, simplesmente chamamos a função que inicializa a validação (que está abaixo)
+            // Re-aplicar máscaras se o DOM tiver sido alterado
+            // A função window.applyFormMasks() é exportada de masks.js
+            if (window.applyFormMasks) {
+                window.applyFormMasks();
+            }
             initializeFormValidation();
-            
         }
     }
 }
@@ -109,7 +111,7 @@ window.openModal = function(contentHtml) {
     dialog.innerHTML = contentHtml;
     backdrop.classList.add('open');
     backdrop.setAttribute('aria-hidden', 'false');
-    // Foco no modal (ou no seu primeiro elemento interativo, mas o foco na janela é aceitável)
+    // Foco no modal
     backdrop.querySelector('.modal').focus(); 
 };
 window.closeModal = function() {
@@ -143,37 +145,32 @@ window.showToast = function(message, timeout = 3500) {
 // -------------------------------------------------------------------------
 
 function initializeFormValidation() {
-    // Remove listeners antigos para evitar duplicação (importante no contexto SPA)
-    document.querySelectorAll('form#form-voluntario').forEach(form => {
-        const oldForm = form.cloneNode(true);
-        form.parentNode.replaceChild(oldForm, form);
-    });
+    // Seleciona o formulário *dentro* do conteúdo atual da SPA
+    const form = document.getElementById('form-voluntario');
+    if (!form) return;
 
-    // Adiciona listener de submissão no novo formulário
-    document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); 
-            // Sistema de verificação de consistência de dados em formulários
-            if (!form.checkValidity()) {
-                form.classList.add('was-validated');
-                showToast('Existem campos inválidos. Veja os erros no formulário.');
-                return;
-            }
-            // Se válido: simula envio e mostra agradecimento
-            form.classList.remove('was-validated');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+        // Sistema de verificação de consistência de dados em formulários
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            showToast('Existem campos inválidos. Veja os erros no formulário.');
+            return;
+        }
+        // Se válido: simula envio e mostra agradecimento
+        form.classList.remove('was-validated');
 
-            // Esconder formulário, mostrar mensagem de obrigado
-            const formContainer = form.closest('section') || form;
-            const msg = formContainer.querySelector('#mensagem');
+        // Esconder formulário, mostrar mensagem de obrigado
+        const formContainer = form.closest('section');
+        const msg = document.getElementById('mensagem'); // ID é mais seguro
 
-            if (msg) {
-                form.style.display = 'none';
-                msg.classList.remove('hidden');
-                msg.setAttribute('aria-hidden', 'false');
-            }
-            showToast('Cadastro recebido! Obrigado por se voluntariar.');
-        }, false);
-    });
+        if (msg) {
+            form.style.display = 'none';
+            msg.classList.remove('hidden');
+            msg.setAttribute('aria-hidden', 'false');
+        }
+        showToast('Cadastro recebido! Obrigado por se voluntariar.');
+    }, false);
 }
 
 
@@ -191,8 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeModal();
 
     // 3. Inicializa a validação de formulário (necessária para a primeira carga, se for 'cadastro')
-    // Nota: O masks.js também será executado ao carregar o DOM, mas a validação precisa ser re-aplicada
-    // se o template for trocado, o que é feito dentro de loadTemplate('cadastro').
     if(window.location.hash === '#cadastro') {
         initializeFormValidation();
     }
